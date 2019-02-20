@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LogicEncapsViews</string>
+
+    <string name="project_description">{This will be a description}</string>
+
+    <string name="empty"></string>
+    <string name="err_no_implementation">Implementation not found</string>
+</resources>
