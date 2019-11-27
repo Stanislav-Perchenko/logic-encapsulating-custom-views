@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.alperez.library.widget.SlidingViewFlipper
+<com.alperez.library.widget.SlidingViewFlipper android:id="@+id/flipper"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
