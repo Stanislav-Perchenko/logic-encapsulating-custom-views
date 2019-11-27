@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Collect Goods</string>
+    <string name="title_selected_weight">Selected weight, KG</string>
+</resources>

@@ -1,2 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alperez.widget.customlayout" />
+    package="com.alperez.library.customlayout" />

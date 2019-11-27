@@ -5,4 +5,14 @@
 
     <string name="empty"></string>
     <string name="err_no_implementation">Implementation not found</string>
+
+    <string name="collected_items">Collected items</string>
+    <string name="action_collect_more">Collect more items</string>
+    <string name="label_customer">Customer:</string>
+    <string name="action_fill_in">Fill in</string>
+    <string name="txt_hint_tap_to_sign">Tap to sign</string>
+    <string name="customer_name">Customer name</string>
+    <string name="customer_signature">Customer signature</string>
+    <string name="txt_hint_sign_here">Sign here</string>
+    <string name="action_apply_signature">Apply signature</string>
 </resources>

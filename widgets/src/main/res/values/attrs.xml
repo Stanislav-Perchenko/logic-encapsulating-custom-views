@@ -1,4 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="aspect_width" format="integer" />
+    <attr name="aspect_height" format="integer" />
+    <attr name="ref_side" format="enum" >
+        <enum name="width" value="0" />
+        <enum name="height" value="1" />
+    </attr>
+    <attr name="signColor" format="color" />
+    <attr name="signStrokeWidth" format="dimension" />
+
+
+
+    <!--  EditablePropertyView  -->
+    <declare-styleable name="EditablePropertyView">
+        <attr name="isMandatory" format="boolean" />
+        <attr name="propertyName" format="string" />
+        <attr name="propertyIcon" format="reference" />
+        <attr name="validMarkIcon" format="reference" />
+        <attr name="mandatoryMarkColor" format="color" />
+        <attr name="valueTemplateRegex" format="string" />
+        <attr name="actionDrawable" format="reference"/>
+    </declare-styleable>
+
+
+    <!--  SlidingViewFlipper  -->
+    <declare-styleable name="SlidingViewFlipper">
+        <attr name="incrementOutAnimation" format="reference"/>
+        <attr name="incrementInAnimation" format="reference"/>
+        <attr name="decrementOutAnimation" format="reference"/>
+        <attr name="decrementInAnimation" format="reference"/>
+    </declare-styleable>
+
+    <!--  StableAspectFrameLayout  -->
+    <declare-styleable name="StableAspectFrameLayout" >
+        <attr name="aspect_width"/>
+        <attr name="aspect_height"/>
+        <attr name="ref_side"/>
+    </declare-styleable>
+
+
+    <!--  SignatureEditorView  -->
+    <declare-styleable name="SignatureEditorView" >
+        <attr name="signColor" />
+        <attr name="signStrokeWidth" />
+    </declare-styleable>
+
+    <!--  SignatureView  -->
+    <declare-styleable name="SignatureView" >
+        <attr name="signColor" />
+        <attr name="signStrokeWidth" />
+    </declare-styleable>
+
+
+
 </resources>

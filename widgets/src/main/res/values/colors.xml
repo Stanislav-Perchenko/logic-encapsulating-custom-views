@@ -7,4 +7,5 @@
     <color name="text_light_gray">#BCBCBC</color>
     <color name="text_almost_white">#F1F1F1</color>
     <color name="text_white">#FFFFFF</color>
+    <color name="text_link">#0000EA</color>
 </resources>

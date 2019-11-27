@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.alperez.samples">
 
     <application
@@ -7,7 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".launcher.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" >
@@ -17,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".demoactivity.EditablePropertyDemoActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".demoactivity.CollectingGoodsDemoActivity"
+            android:screenOrientation="portrait"/>
 
 
     </application>
