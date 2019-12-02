@@ -4,5 +4,11 @@
     "subtitle": "Multiple checkable items",
     "description": "A custom widget which encapsulates editable field and validation logic",
     "screenClassName": "com.alperez.samples.demoactivity.EditablePropertyDemoActivity"
+  },
+  {
+    "title": "Collecting Goods",
+    "subtitle": "Multiple goods collecting",
+    "description": "Aa implementation of the user input form for collecting a set of good items with weights. It's implemented as the sliding sub-screens with dynamic layout built.\nTODO Добавит в список товаров тотал по всем пунктам и тотал в каждый пункт.\nTODO Сделать сохранение выбранных товаров в хранилище.\nTODO Сделать очистку хранилища кнопкой ",
+    "screenClassName": "com.alperez.samples.demoactivity.CollectingGoodsDemoActivity"
   }
 ]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "ewc_code": "15 01 01",
+    "ewc_category_title": "Cardboard"
+  },
+  {
+    "id": 2,
+    "ewc_code": "20 01 01",
+    "ewc_category_title": "Paper/Mixed Paper"
+  },
+  {
+    "id": 3,
+    "ewc_code": "20 01 10",
+    "ewc_category_title": "Clothes/Rags"
+  },
+  {
+    "id": 4,
+    "ewc_code": "20 01 11",
+    "ewc_category_title": "Textiles"
+  },
+  {
+    "id": 5,
+    "ewc_code": "20 02 03",
+    "ewc_category_title": "Other non-biodegradable"
+  }
+]

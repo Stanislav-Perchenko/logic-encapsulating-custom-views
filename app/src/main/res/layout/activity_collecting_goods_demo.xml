@@ -5,7 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_background">
+    android:background="@color/background_darker"
+    app:incrementInAnimation="@anim/fly_from_right"
+    app:incrementOutAnimation="@anim/fly_to_left"
+    app:decrementInAnimation="@anim/fly_from_left"
+    app:decrementOutAnimation="@anim/fly_to_right">
 
     <!--  Page 1 - main Editor  -->
     <ScrollView
@@ -224,117 +228,117 @@
                 android:background="@drawable/bg_btn_start_visit"/>
 
         </LinearLayout>
+    </ScrollView>
 
-        <!--  Page 2 - Select new item  -->
-        <com.alperez.samples.collectgoods.widget.SelectGoodItemView android:id="@+id/good_item_selector"
+    <!--  Page 2 - Select new item  -->
+    <com.alperez.samples.collectgoods.widget.SelectGoodItemView android:id="@+id/good_item_selector"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_background"/>
+
+    <!--  Page 3 - Sign from customer  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="@color/background_darker" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/customer_name"/>
+
+        <EditText android:id="@+id/edt_customer_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/default_background"/>
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:lines="1"/>
 
-        <!--  Page 3 - Sign from customer  -->
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textSize="12sp"
+            android:textColor="@color/text_gray"
+            android:text="@string/customer_signature"/>
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:background="@color/background_darker" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/text_gray"
-                android:text="@string/customer_name"/>
-
-            <EditText android:id="@+id/edt_customer_name"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+            <com.alperez.library.widget.StableAspectFrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:lines="1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:textSize="12sp"
-                android:textColor="@color/text_gray"
-                android:text="@string/customer_signature"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
-                <com.alperez.library.widget.StableAspectFrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginRight="48dp"
-                    app:ref_side="width"
-                    app:aspect_width="7"
-                    app:aspect_height="4"
-                    android:background="@color/default_background">
-                    <TextView android:id="@+id/txt_hint_sign_here"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textColor="#90F4595A"
-                        android:text="@string/txt_hint_sign_here"/>
-                    <com.alperez.library.widget.SignatureEditorView android:id="@+id/signature_editor"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:signColor="@color/text_link"
-                        app:signStrokeWidth="2dp" />
-                </com.alperez.library.widget.StableAspectFrameLayout>
-
-                <FrameLayout
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="top|right">
-                    <ImageView android:id="@+id/action_clear_signature_editor"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center"
-                        android:clickable="true"
-                        android:scaleType="center"
-                        android:src="@drawable/ic_clear_18dp"
-                        android:tint="@color/text_gray"
-                        android:background="?android:selectableItemBackgroundBorderless"/>
-                </FrameLayout>
-
-                <TextView android:id="@+id/txt_num_sign_tracks"
+                android:layout_gravity="left"
+                android:layout_marginRight="48dp"
+                app:ref_side="width"
+                app:aspect_width="7"
+                app:aspect_height="4"
+                android:background="@color/default_background">
+                <TextView android:id="@+id/txt_hint_sign_here"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
-                    android:layout_marginRight="20dp"
-                    tools:text="3"/>
+                    android:layout_gravity="center"
+                    android:textColor="#90F4595A"
+                    android:text="@string/txt_hint_sign_here"/>
+                <com.alperez.library.widget.SignatureEditorView android:id="@+id/signature_editor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:signColor="@color/text_link"
+                    app:signStrokeWidth="2dp" />
+            </com.alperez.library.widget.StableAspectFrameLayout>
 
-                <FrameLayout
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="bottom|right">
-                    <ImageView android:id="@+id/action_apply_signature"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center"
-                        android:clickable="true"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_done_white_48dp"
-                        android:tint="@color/app_color_green"
-                        android:background="?android:selectableItemBackgroundBorderless"/>
-                </FrameLayout>
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="top|right">
+                <ImageView android:id="@+id/action_clear_signature_editor"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_clear_18dp"
+                    android:tint="@color/text_gray"
+                    android:background="?android:selectableItemBackgroundBorderless"/>
             </FrameLayout>
 
-            <Button
-                android:visibility="gone"
+            <TextView android:id="@+id/txt_num_sign_tracks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:layout_gravity="center_horizontal"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:text="@string/action_apply_signature"/>
-        </LinearLayout>
-    </ScrollView>
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="20dp"
+                tools:text="3"/>
+
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom|right">
+                <ImageView android:id="@+id/action_apply_signature"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_done_white_48dp"
+                    android:tint="@color/app_color_green"
+                    android:background="?android:selectableItemBackgroundBorderless"/>
+            </FrameLayout>
+        </FrameLayout>
+
+        <Button
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/action_apply_signature"/>
+    </LinearLayout>
 
 </com.alperez.library.widget.SlidingViewFlipper>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Books",
+    "price_id": 428,
+    "price_value": 2567,
+    "price_scale": 3,
+    "price_date": "2018-05-10",
+    "ewc_id": 2,
+    "unit": "kg"
+  },
+  {
+    "id": 2,
+    "name": "Shoes",
+    "price_id": 657,
+    "price_value": 725,
+    "price_scale": 2,
+    "price_date": "2018-07-03",
+    "ewc_id": 3,
+    "unit": "kg"
+  },
+  {
+    "id": 3,
+    "name": "Clothes",
+    "price_id": 4247,
+    "price_value": 122,
+    "price_scale": 1,
+    "price_date": "2018-11-11",
+    "ewc_id": 3,
+    "unit": "kg"
+  },
+  {
+    "id": 4,
+    "name": "Textile Rum.",
+    "price_id": 357,
+    "price_value": 855,
+    "price_scale": 2,
+    "price_date": "2018-12-22",
+    "ewc_id": 4,
+    "unit": "kg"
+  },
+  {
+    "id": 5,
+    "name": "Household Items",
+    "price_id": 9547,
+    "price_value": 535,
+    "price_scale": 2,
+    "price_date": "2018-01-08",
+    "ewc_id": 5,
+    "unit": "kg"
+  },
+  {
+    "id": 6,
+    "name": "Electronics",
+    "price_id": 1273,
+    "price_value": 4800,
+    "price_scale": 2,
+    "price_date": "2018-06-17",
+    "ewc_id": 5,
+    "unit": "kg"
+  },
+  {
+    "id": 7,
+    "name": "Boxes/Packaging",
+    "price_id": 6457,
+    "price_value": 273,
+    "price_scale": 3,
+    "price_date": "2018-09-19",
+    "ewc_id": 1,
+    "unit": "kg"
+  }
+]

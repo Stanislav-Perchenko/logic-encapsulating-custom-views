@@ -1,6 +1,7 @@
 package com.alperez.samples.demoactivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -27,6 +28,7 @@ import com.alperez.samples.collectgoods.storage.SingleVisitEditorStorage;
 import com.alperez.samples.collectgoods.util.LongId;
 import com.alperez.samples.collectgoods.widget.CollectedGoodItemView;
 import com.alperez.samples.collectgoods.widget.SelectGoodItemView;
+import com.alperez.samples.presenter.CollectingGoodsDemoPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +66,8 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
     private TextView dbgTxtNSignTracks;
 
     private final List<PricedGoodEntity> mGoodCategs = new ArrayList<>();
+
+    private CollectingGoodsDemoPresenter mPresenter;
 
     /**
      * This parameter is passed to the activity as an argument
@@ -119,10 +123,8 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
         setupCustomerUiSection();
         populateCustomerFromStorage();
 
-
-        //TODO Implement presenter !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        /*mPresenter = new VisitEditorActivityPresenter(this);
-        mPresenter.initializeView();*/
+        mPresenter = new CollectingGoodsDemoPresenter(this);
+        mPresenter.initializeView();
 
     }
 
@@ -171,6 +173,13 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
             super.onBackPressed();
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.release();
+    }
+
     private void populateCurrentlySelectedGoodsForVisit(List<PricedGoodEntity> goodCategs) {
         vCollectedGoodsContainer.removeAllViews();
         Set<LocalCollectedGoodItem> goods = SingleVisitEditorStorage.getInstance(this).getAllCollectedGoods(argVisitId);
@@ -356,5 +365,8 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
         }
     }
 
-
+    @Override
+    public Context getContext() {
+        return this;
+    }
 }
