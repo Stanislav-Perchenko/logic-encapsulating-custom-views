@@ -8,7 +8,7 @@
   {
     "title": "Collecting Goods",
     "subtitle": "Multiple goods collecting",
-    "description": "Aa implementation of the user input form for collecting a set of good items with weights. It's implemented as the sliding sub-screens with dynamic layout built.\nTODO Добавит в список товаров тотал по всем пунктам и тотал в каждый пункт.\nTODO Сделать сохранение выбранных товаров в хранилище.\nTODO Сделать очистку хранилища кнопкой ",
+    "description": "Aa implementation of the user input form for collecting a set of good items with weights. It's implemented as the sliding sub-screens with dynamic layout built.",
     "screenClassName": "com.alperez.samples.demoactivity.CollectingGoodsDemoActivity"
   }
 ]

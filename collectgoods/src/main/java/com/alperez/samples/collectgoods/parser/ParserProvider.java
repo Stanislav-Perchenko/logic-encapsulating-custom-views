@@ -1,6 +1,7 @@
 package com.alperez.samples.collectgoods.parser;
 
 import com.alperez.samples.collectgoods.model.EWCCodeEntity;
+import com.alperez.samples.collectgoods.model.UserEntity;
 import com.alperez.samples.collectgoods.util.LongId;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
@@ -13,6 +14,7 @@ public final class ParserProvider {
 
     public static Moshi getMoshiParser() {
         Moshi m = new Moshi.Builder()
+                .add(Types.newParameterizedType(LongId.class, UserEntity.class), new LongIdJsonAdapter<UserEntity>())
                 .add(Types.newParameterizedType(LongId.class, EWCCodeEntity.class), new LongIdJsonAdapter<EWCCodeEntity>())
                 .build();
 

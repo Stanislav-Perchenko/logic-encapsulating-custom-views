@@ -2,6 +2,7 @@ package com.alperez.samples.demoactivity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +26,7 @@ import com.alperez.samples.R;
 import com.alperez.samples.collectgoods.GlobalProperties;
 import com.alperez.samples.collectgoods.model.LocalCollectedGoodItem;
 import com.alperez.samples.collectgoods.model.PricedGoodEntity;
+import com.alperez.samples.collectgoods.model.UserEntity;
 import com.alperez.samples.collectgoods.model.VisitEntity;
 import com.alperez.samples.collectgoods.storage.SingleVisitEditorStorage;
 import com.alperez.samples.collectgoods.util.LongId;
@@ -69,6 +72,7 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
     private TextView dbgTxtNSignTracks;
 
     private final List<PricedGoodEntity> mGoodCategs = new ArrayList<>();
+    private UserEntity mUser;
 
     private CollectingGoodsDemoPresenter mPresenter;
 
@@ -120,11 +124,6 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
             populateCustomerFromStorage();
             updateTotalPayed();
         });
-
-        //TODO Load driver photo and name
-        /*UserEntity driver = SessionHolder.currentSession().getUser();
-        AvousApplication.getPicasso().load(driver.getPhotoUrl()).into((ImageView) findViewById(R.id.ic_driver_photo));
-        ((TextView) findViewById(R.id.txt_driver_name)).setText(driver.getFullName());*/
 
         setupSignatureEditorPage();
 
@@ -399,6 +398,20 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
             goodsLoadedFirstTime = false;
             populateCurrentlySelectedGoodsForVisit();
             updateTotalPayed();
+        }
+    }
+
+    @Override
+    public void onUserLoaded(UserEntity user) {
+        mUser = user;
+        ((TextView) findViewById(R.id.txt_driver_name)).setText(user.getFullName());
+        mPresenter.loadImageAsync(user.getIconPath());
+    }
+
+    @Override
+    public void onImageLoaded(String path, Bitmap img) {
+        if (TextUtils.equals(path, mUser.getIconPath())) {
+            ((ImageView) findViewById(R.id.ic_driver_photo)).setImageBitmap(img);
         }
     }
 
