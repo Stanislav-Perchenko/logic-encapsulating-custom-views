@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.alperez.samples.collectgoods.GlobalProperties;
 import com.alperez.samples.collectgoods.model.LocalCollectedGoodItem;
 import com.alperez.samples.collectgoods.model.PricedGoodEntity;
 import com.alperez.samples.collectgoods.util.LongId;
@@ -28,8 +29,6 @@ import java.util.Locale;
  * Created by stanislav.perchenko on 11/14/2019, 6:38 PM.
  */
 public class SelectGoodItemView extends ScrollView {
-
-    private static final Locale APPLICATION_LOCALE = new Locale("en", "GB", "");
 
     public interface OnSelectionChangeListener {
         void onSelectionChanged();
@@ -166,7 +165,7 @@ public class SelectGoodItemView extends ScrollView {
 
         ((TextView) child.findViewById(R.id.txt_good_name)).setText(gCat.categoryName());
         ((TextView) child.findViewById(R.id.txt_ewc_code)).setText(gCat.ewcCode().getCode());
-        String txtPrice = PublicUtils.formatPrice(gCat.priceValue(), gCat.priceScale(), true, APPLICATION_LOCALE);
+        String txtPrice = PublicUtils.formatPrice(gCat.priceValue(), gCat.priceScale(), true, GlobalProperties.APPLICATION_LOCALE);
         ((TextView) child.findViewById(R.id.txt_price)).setText((gCat.unitOfMeasure() == null) ? txtPrice : String.format("%s/%s", txtPrice, gCat.unitOfMeasure()));
 
         return child;

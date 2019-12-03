@@ -21,11 +21,13 @@ import com.alperez.library.widget.SignatureEditorView;
 import com.alperez.library.widget.SignatureView;
 import com.alperez.library.widget.SlidingViewFlipper;
 import com.alperez.samples.R;
+import com.alperez.samples.collectgoods.GlobalProperties;
 import com.alperez.samples.collectgoods.model.LocalCollectedGoodItem;
 import com.alperez.samples.collectgoods.model.PricedGoodEntity;
 import com.alperez.samples.collectgoods.model.VisitEntity;
 import com.alperez.samples.collectgoods.storage.SingleVisitEditorStorage;
 import com.alperez.samples.collectgoods.util.LongId;
+import com.alperez.samples.collectgoods.util.PublicUtils;
 import com.alperez.samples.collectgoods.widget.CollectedGoodItemView;
 import com.alperez.samples.collectgoods.widget.SelectGoodItemView;
 import com.alperez.samples.presenter.CollectingGoodsDemoPresenter;
@@ -44,6 +46,7 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
 
     //--- Page 1 ---
     private LinearLayout vCollectedGoodsContainer;
+    private TextView vTxtTotal;
 
     //--- Signature section ---
     private TextView vTxtCustomerName;
@@ -100,6 +103,7 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
 
         vFlipper = findViewById(R.id.flipper);
         vCollectedGoodsContainer = findViewById(R.id.collected_goods_container);
+        vTxtTotal = findViewById(R.id.txt_total_payed);
         vGoodsSelector = findViewById(R.id.good_item_selector);
 
         vFlipper.setOnChildChangedListener(childIndex -> invalidateOptionsMenu());
@@ -110,7 +114,12 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
             vFlipper.showNext(1);
         });
 
-        findViewById(R.id.action_clear_all).setOnClickListener(this::clearAllData);
+        findViewById(R.id.action_clear_all).setOnClickListener(v -> {
+            SingleVisitEditorStorage.getInstance(this).clear();
+            populateCurrentlySelectedGoodsForVisit();
+            populateCustomerFromStorage();
+            updateTotalPayed();
+        });
 
         //TODO Load driver photo and name
         /*UserEntity driver = SessionHolder.currentSession().getUser();
@@ -119,6 +128,7 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
 
         setupSignatureEditorPage();
 
+        updateTotalPayed();
 
         setupCustomerUiSection();
         populateCustomerFromStorage();
@@ -153,6 +163,8 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
                     if (good.id().equals(selection.getGoodcategoryId())) {
                         SingleVisitEditorStorage.getInstance(this).addCollectedItem(argVisitId, selection);
                         addNewCollectedGoodToUi(good, selection.getWeightKg());
+                        updateTotalPayed();
+                        break;
                     }
                 }
                 vFlipper.showPrevious(0);
@@ -180,17 +192,18 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
         mPresenter.release();
     }
 
-    private void populateCurrentlySelectedGoodsForVisit(List<PricedGoodEntity> goodCategs) {
+    private PricedGoodEntity getGoodCategoryById(LongId<PricedGoodEntity> goodId) {
+        for (PricedGoodEntity g_item : mGoodCategs) {
+            if (g_item.id().equals(goodId)) return g_item;
+        }
+        return null;
+    }
+
+    private void populateCurrentlySelectedGoodsForVisit() {
         vCollectedGoodsContainer.removeAllViews();
         Set<LocalCollectedGoodItem> goods = SingleVisitEditorStorage.getInstance(this).getAllCollectedGoods(argVisitId);
         for (LocalCollectedGoodItem collectedItem : goods) {
-            PricedGoodEntity good = null;
-            for (PricedGoodEntity g_item : goodCategs) {
-                if (g_item.id().equals(collectedItem.getGoodcategoryId())) {
-                    good = g_item;
-                    break;
-                }
-            }
+            PricedGoodEntity good = getGoodCategoryById(collectedItem.getGoodcategoryId());
 
             if (good != null) {
                 CollectedGoodItemView childView = new CollectedGoodItemView(this, good, collectedItem.getWeightKg());
@@ -219,18 +232,41 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
         vCollectedGoodsContainer.addView(childView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
+    private void updateTotalPayed() {
+        int total_amount = 0, total_scale = 0;
+        for (LocalCollectedGoodItem lgi : SingleVisitEditorStorage.getInstance(this).getAllCollectedGoods(argVisitId)) {
+            PricedGoodEntity good = getGoodCategoryById(lgi.getGoodcategoryId());
+            if (good != null) {
+
+                if (total_scale == 0) {
+                    total_scale = good.priceScale();
+                    total_amount = good.priceValue() * lgi.getWeightKg();
+                } else if (good.priceScale() < total_scale) {
+                    int dScale = total_scale - good.priceScale();
+                    int itemPrice = good.priceValue() * (int)Math.pow(10, dScale);
+                    total_amount += itemPrice * lgi.getWeightKg();
+                } else if (good.priceScale() > total_scale) {
+                    int dScale = good.priceScale() - total_scale;
+                    total_amount *= (int)Math.pow(10, dScale);
+                    total_scale += dScale;
+                    total_amount += good.priceValue() * lgi.getWeightKg();
+                } else {// good.priceScale() == total_scale
+                    total_amount += good.priceValue() * lgi.getWeightKg();
+                }
+            }
+        }
+        String txtTotal = PublicUtils.formatPrice(total_amount, total_scale, true, GlobalProperties.APPLICATION_LOCALE);
+        vTxtTotal.setText(txtTotal);
+    }
+
     private void onDeleteCollectedGood(final CollectedGoodItemView goodView) {
         new AlertDialog.Builder(this).setMessage("Remove item?")
                 .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                     SingleVisitEditorStorage.getInstance(this).removeCollectedItem(argVisitId, goodView.getGoodId());
                     vCollectedGoodsContainer.removeView(goodView);
+                    updateTotalPayed();
                 }).setNegativeButton(android.R.string.no, null).show();
     }
-
-    private void clearAllData(View v) {
-        //TODO Implement this !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
-
 
     /***************************  Page 3 - signature editor  **************************************/
     private void setupSignatureEditorPage() {
@@ -361,7 +397,8 @@ public class CollectingGoodsDemoActivity extends BaseDemoActivity implements Col
         vGoodsSelector.setAllGoods(goodCategs);
         if (goodsLoadedFirstTime) {
             goodsLoadedFirstTime = false;
-            populateCurrentlySelectedGoodsForVisit(goodCategs);
+            populateCurrentlySelectedGoodsForVisit();
+            updateTotalPayed();
         }
     }
 

@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.alperez.samples.collectgoods.GlobalProperties;
 import com.alperez.samples.collectgoods.R;
 import com.alperez.samples.collectgoods.model.PricedGoodEntity;
 import com.alperez.samples.collectgoods.util.LongId;
@@ -18,7 +19,6 @@ import java.util.Locale;
  * Created by stanislav.perchenko on 11/16/2019, 4:51 PM.
  */
 public class CollectedGoodItemView extends FrameLayout {
-    private static final Locale APPLICATION_LOCALE = new Locale("en", "GB", "");
 
     public interface OnDeleteListener {
         void onDelete(CollectedGoodItemView v);
@@ -33,6 +33,7 @@ public class CollectedGoodItemView extends FrameLayout {
     private TextView vTxtAmount;
     private TextView vTxtEwcCode;
     private TextView vTxtPrice;
+    private TextView vTxtTotal;
 
     public CollectedGoodItemView(@NonNull Context context, PricedGoodEntity goodCategory, Integer amount) {
         super(context);
@@ -41,6 +42,7 @@ public class CollectedGoodItemView extends FrameLayout {
         vTxtAmount = findViewById(R.id.txt_amount_weight);
         vTxtEwcCode = findViewById(R.id.txt_ewc_code);
         vTxtPrice = findViewById(R.id.txt_price);
+        vTxtTotal = findViewById(R.id.txt_item_total);
 
         setData(goodCategory, amount);
 
@@ -60,9 +62,13 @@ public class CollectedGoodItemView extends FrameLayout {
         this.amount = amount;
         vTxtGoodName.setText(gCat.categoryName());
         vTxtEwcCode.setText(gCat.ewcCode().getCode());
-        String txtPrice = PublicUtils.formatPrice(gCat.priceValue(), gCat.priceScale(), true, APPLICATION_LOCALE);
+        String txtPrice = PublicUtils.formatPrice(gCat.priceValue(), gCat.priceScale(), true, GlobalProperties.APPLICATION_LOCALE);
         vTxtPrice.setText((gCat.unitOfMeasure() == null) ? txtPrice : String.format("%s/%s", txtPrice, gCat.unitOfMeasure()));
         vTxtAmount.setText(getResources().getString(R.string.collected_amount, amount.intValue(), gCat.unitOfMeasure()));
+
+        String txtTotal = PublicUtils.formatPrice(amount * gCat.priceValue(), gCat.priceScale(), true, GlobalProperties.APPLICATION_LOCALE);
+        vTxtTotal.setText(txtTotal);
+
     }
 
     public LongId<PricedGoodEntity> getGoodId() {
