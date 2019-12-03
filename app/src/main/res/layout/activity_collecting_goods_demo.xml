@@ -249,9 +249,9 @@
                 android:textColor="@color/text_white"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:text="Clear all"
+                android:text="@string/action_clear_all"
                 android:clickable="true"
-                android:background="@drawable/bg_btn_start_visit"/>
+                android:background="@drawable/bg_action_button"/>
 
         </LinearLayout>
     </ScrollView>

@@ -6,6 +6,7 @@
     <string name="empty"></string>
     <string name="err_no_implementation">Implementation not found</string>
 
+    <!-- CollectingGoodsDemoActivity -->
     <string name="collected_items">Collected items</string>
     <string name="action_collect_more">Collect more items</string>
     <string name="label_customer">Customer:</string>
@@ -15,4 +16,20 @@
     <string name="customer_signature">Customer signature</string>
     <string name="txt_hint_sign_here">Sign here</string>
     <string name="action_apply_signature">Apply signature</string>
+    <string name="action_clear_all">Clear all</string>
+
+
+    <!-- EditablePropertyDemoActivity -->
+    <string name="login_welcome">Welcome</string>
+    <string name="register_explain_1">Please fill your information</string>
+    <string name="hint_email">Email (only visible for you)</string>
+    <string name="hint_primary_email">Email (login)</string>
+    <string name="hint_password_reenter">Confirm Password</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_full_name">Full name</string>
+    <string name="email_validation_pattern">[A-Za-z0-9._%+-][A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}</string>
+    <string name="password_validation_pattern">^.{6,12}$</string>
+    <string name="username_validation_pattern">^[\u0041-\u005A\u0061-\u007A\u00C0-\u017F\u0400-\u045F][\u0041-\u005A\u0061-\u007A\u00C0-\u017F\u0400-\u045F\u0030-\u0039-_\.]{1,20}$</string>
+    <string name="action_register">Register</string>
 </resources>

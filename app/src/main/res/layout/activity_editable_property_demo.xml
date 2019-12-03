@@ -1,6 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        android:textColor="@color/text_black"
+        android:textStyle="bold"
+        android:text="@string/login_welcome"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:textSize="13sp"
+        android:textColor="@color/text_light_gray"
+        android:text="@string/register_explain_1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="0dp">
+        <com.alperez.library.widget.EditablePropertyView android:id="@+id/edt_fullname"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            app:isMandatory="false"
+            app:propertyName="@string/hint_full_name"
+            app:propertyIcon="@drawable/ic_person_selector" />
+        <ImageView android:id="@+id/ic_privacy_fullname"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_weight="0"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_privacy_16dp"/>
+    </LinearLayout>
+
+    <com.alperez.library.widget.EditablePropertyView android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
+        app:isMandatory="true"
+        app:mandatoryMarkColor="@color/app_color_red"
+        app:validMarkIcon="@drawable/ic_check_inverse_16dp"
+        app:propertyName="@string/hint_username"
+        app:propertyIcon="@drawable/ic_person_selector"
+        app:valueTemplateRegex="@string/username_validation_pattern"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="0dp">
+        <com.alperez.library.widget.EditablePropertyView android:id="@+id/edt_email"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            app:isMandatory="true"
+            app:mandatoryMarkColor="@color/app_color_red"
+            app:validMarkIcon="@drawable/ic_check_inverse_16dp"
+            app:propertyName="@string/hint_primary_email"
+            app:propertyIcon="@drawable/ic_login_email_selector"
+            app:valueTemplateRegex="@string/email_validation_pattern"/>
+        <ImageView android:id="@+id/ic_privacy_email"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_weight="0"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_privacy_16dp"/>
+    </LinearLayout>
+
+    <com.alperez.library.widget.EditablePropertyView android:id="@+id/edt_password_1"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"
+        android:maxLength="12"
+        app:isMandatory="true"
+        app:mandatoryMarkColor="@color/app_color_red"
+        app:validMarkIcon="@drawable/ic_check_inverse_16dp"
+        app:propertyName="@string/hint_password"
+        app:propertyIcon="@drawable/ic_login_password_selector"
+        app:valueTemplateRegex="@string/password_validation_pattern"/>
+
+    <com.alperez.library.widget.EditablePropertyView android:id="@+id/edt_password_2"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/base_margin"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:maxLength="12"
+        app:isMandatory="true"
+        app:mandatoryMarkColor="@color/app_color_red"
+        app:validMarkIcon="@drawable/ic_check_inverse_16dp"
+        app:propertyName="@string/hint_password_reenter"
+        app:propertyIcon="@drawable/ic_login_password_selector"
+        app:valueTemplateRegex="@string/password_validation_pattern"/>
+
+
+    <TextView android:id="@+id/action_register"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:textColor="@color/text_white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:text="@string/action_register"
+        android:clickable="true"
+        android:background="@drawable/bg_action_button"/>
 
 </LinearLayout>

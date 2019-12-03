@@ -38,7 +38,7 @@ public class EditablePropertyView extends RelativeLayout {
     private boolean isBgValidMarkChanged = true;
     private Drawable bgValidMark;
     private boolean isMandatoryMarkColorChanged = true;
-    private int colorMandatoryMark = 0xFFFF4545;
+    private int colorMandatoryMark = 0xFF454545;
 
     private String valueTemplate;
     private int attrInputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS;
