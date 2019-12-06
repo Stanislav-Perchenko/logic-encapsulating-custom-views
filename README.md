@@ -37,7 +37,7 @@ on the right.
 
 ![Filled editors](/docs/EditablePropertyView-2.png "Filled editors")
 
-Here you can see the [video][1] of using this widget.
+Here you can see the [**video**][1] of using this widget.
 
 
 Collecting Goods
@@ -53,6 +53,12 @@ collecting goods, their weights and editing signature.
 
 There is the full [**video**][2] of using this demo.
 
+The 1-st page with some goods selected and *seller* data provided
+![First page](/docs/collect-goods-1.png "First page")
+
+
+Page 2 - goods selector
+![Page 2 - goods selector](/docs/collect-goods-2.png "Page 2 - goods selector")
 
 
 
