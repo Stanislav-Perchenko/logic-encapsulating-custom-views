@@ -40,11 +40,22 @@ on the right.
 Here you can see the [video][1] of using this widget.
 
 
+Collecting Goods
+-------------
 
+The agenda of this demo is that a *buyer* collects some goods of different categories () and pays for them.
+Goods are collected by weights. The set of good categories and related prices are supposed to be loaded
+from a backend, but hard-coded in this demo. The *seller* must put its signature at the end.
 
+The form of goods collecting is organized as the several sliding screen. The 1-st one displays currently-collected
+set of goods, total amount to be payed and provided seller's signature. The others are used for making choices of
+collecting goods, their weights and editing signature.
+
+There is the full [**video**][2] of using this demo.
 
 
 
 
 
 [1]: /docs/editable-property-view.mp4
+[2]: /docs/collecting-goods.mp4
