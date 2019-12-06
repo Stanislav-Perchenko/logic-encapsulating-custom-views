@@ -26,9 +26,9 @@ on the right.
 
 ### Usage in layout ###
 
-![Layout demo](/docs/EditablePropertyView-layout-usage.png "qwerty")
+![Layout demo](/docs/EditablePropertyView-layout-usage.png "Layout demo")
 
-![Left icon XML selector demo](/docs/ic_login_email_selector.png "qwerty")
+![Left icon XML selector demo](/docs/ic_login_email_selector.png "Left icon XML selector demo")
 
 
 
