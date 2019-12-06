@@ -102,10 +102,15 @@ public class SignatureView extends View {
             mYY = null;
             mPPP = null;
 
-            String[] sections = mSignature.split("\\+");
-            String[] txt_wh = sections[0].split(";");
-            originalSignatureWidth = Integer.parseInt(txt_wh[0]);
-            originalSignatureHeight = Integer.parseInt(txt_wh[1]);
+            if (TextUtils.isEmpty(signature)) {
+                originalSignatureWidth = 0;
+                originalSignatureHeight = 0;
+            } else {
+                String[] sections = mSignature.split("\\+");
+                String[] txt_wh = sections[0].split(";");
+                originalSignatureWidth = Integer.parseInt(txt_wh[0]);
+                originalSignatureHeight = Integer.parseInt(txt_wh[1]);
+            }
 
             invalidate();
         }
