@@ -31,7 +31,20 @@ on the right.
 ![Left icon XML selector demo](/docs/ic_login_email_selector.png "Left icon XML selector demo")
 
 
+### UI sample ###
 
-To see what else you can do with Markdown (including **tables**, **images**, **numbered lists**, and more) take a look at the [Cheatsheet][1]. And then try it out by typing in this box!
+![Empty editors](/docs/EditablePropertyView-1.png "Empty editors")
 
-[1]: https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet
+![Filled editors](/docs/EditablePropertyView-2.png "Filled editors")
+
+Here you can see the [video][1] of using this widget.
+
+
+
+
+
+
+
+
+
+[1]: /docs/editable-property-view.mp4

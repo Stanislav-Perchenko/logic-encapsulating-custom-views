@@ -28,7 +28,7 @@
     <string name="hint_password">Password</string>
     <string name="hint_username">Username</string>
     <string name="hint_full_name">Full name</string>
-    <string name="email_validation_pattern">[A–Za–z0–9._%+–][A–Za–z0–9._%+–]+@[A–Za–z0–9.-]+\.[A-Za-z]{2,}</string>
+    <string name="email_validation_pattern">[A-Za-z0-9._%+-][A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}</string>
     <string name="password_validation_pattern">^.{6,12}$</string>
     <string name="username_validation_pattern">^[\u0041-\u005A\u0061-\u007A\u00C0-\u017F\u0400-\u045F][\u0041-\u005A\u0061-\u007A\u00C0-\u017F\u0400-\u045F\u0030-\u0039-_\.]{1,20}$</string>
     <string name="action_register">Register</string>
