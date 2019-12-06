@@ -1,10 +1,24 @@
-This is just a demonstration project for custom Custom Views encapsulating complex layout and related business-logic.
-They are intended for offloading Activities and their layouts of boilerplate code. This custom Views may be used as library artifacts.
+This is just a demonstration project for custom Custom Views encapsulating complex layout and related
+business-logic. They are intended for offloading Activities and their layouts of boilerplate code.
+This custom Views may be used as library artifacts.
 
-Markdown
+EditablePropertyView
 -------------
 
-...is really just ordinary text, *plain and simple*. How is it good for you?
+Usage demonstration activity - **EditablePropertyDemoActivity.java**, module - **app**
+
+View implementation - **EditablePropertyView.java**, module - **widgets**
+
+###Custom properties for the View
+- **isMandatory** - defines if this editor is mandatory to be filled-in. Appropriate parks are shown
+on the right.
+- **propertyName** - a hint to be displayed for this editor.
+- **propertyIcon** - optional icon to be displayed on the left of this editor
+- **validMarkIcon** - optional mark to be displayed if an entered data is match with the validation regex
+- **mandatoryMarkColor** - this can override color of the mark which is displayed if the field is mandatory and no valid data is entered
+- **valueTemplateRegex** - a regular expression for validating entered data
+- **actionDrawable** - an action button may be displayed on the right of this View if valid data is entered and this property is provided
+
 
 - You just **type naturally**, and the result looks good.
 - You **don't have to worry** about clicking formatting buttons.
