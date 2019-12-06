@@ -1,4 +1,5 @@
-This is just a sample. You can play around with your own text right here.
+This is just a demonstration project for custom Custom Views encapsulating complex layout and related business-logic.
+They are intended for offloading Activities and their layouts of boilerplate code. This custom Views may be used as library artifacts.
 
 Markdown
 -------------
