@@ -5,11 +5,16 @@ This custom Views may be used as library artifacts.
 EditablePropertyView
 -------------
 
+This custom View encapsulates EditText along with text hint, related icon ans optional marks for displaying whether this field is mandatory and has valid data.
+It also encapsulated logic for entered text validation, displaying necessary marks and highlighting
+all necessary elements when this editor is in focus.
+
+
 Usage demonstration activity - **EditablePropertyDemoActivity.java**, module - **app**
 
 View implementation - **EditablePropertyView.java**, module - **widgets**
 
-###Custom properties for the View
+### Custom properties for the View ###
 - **isMandatory** - defines if this editor is mandatory to be filled-in. Appropriate parks are shown
 on the right.
 - **propertyName** - a hint to be displayed for this editor.
@@ -19,10 +24,13 @@ on the right.
 - **valueTemplateRegex** - a regular expression for validating entered data
 - **actionDrawable** - an action button may be displayed on the right of this View if valid data is entered and this property is provided
 
+### Usage in layout ###
 
-- You just **type naturally**, and the result looks good.
-- You **don't have to worry** about clicking formatting buttons.
-  - Or fiddling with indentation. (Two spaces is all you need.)
+!(/docs/EditablePropertyView-layout-usage.png "qwerty")
+
+!(/docs/ic_login_email_selector.png "qwerty")
+
+
 
 To see what else you can do with Markdown (including **tables**, **images**, **numbered lists**, and more) take a look at the [Cheatsheet][1]. And then try it out by typing in this box!
 
