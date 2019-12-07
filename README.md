@@ -60,6 +60,11 @@ The 1-st page with some goods selected and *seller* data provided
 Page 2 - goods selector
 ![Page 2 - goods selector](/docs/collect-goods-2.png "Page 2 - goods selector")
 
+### Custom View which encapsulate layouts and business-logic ###
+
+- **CollectedGoodItemView** - this one is used to show selected goods on the 1-st page. It is instantiated from code and added to the container layout dynamically.
+- **SelectGoodItemView** - this View completely implements page 2 of this demo: single-choice selection list for good type and sliders for the selected weight of a good.
+
 
 
 

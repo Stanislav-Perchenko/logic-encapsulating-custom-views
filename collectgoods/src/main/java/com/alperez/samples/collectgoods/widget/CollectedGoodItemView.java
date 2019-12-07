@@ -13,8 +13,6 @@ import com.alperez.samples.collectgoods.model.PricedGoodEntity;
 import com.alperez.samples.collectgoods.util.LongId;
 import com.alperez.samples.collectgoods.util.PublicUtils;
 
-import java.util.Locale;
-
 /**
  * Created by stanislav.perchenko on 11/16/2019, 4:51 PM.
  */
@@ -34,6 +32,10 @@ public class CollectedGoodItemView extends FrameLayout {
     private TextView vTxtEwcCode;
     private TextView vTxtPrice;
     private TextView vTxtTotal;
+
+    public CollectedGoodItemView(@NonNull Context context) {
+        super(context);
+    }
 
     public CollectedGoodItemView(@NonNull Context context, PricedGoodEntity goodCategory, Integer amount) {
         super(context);

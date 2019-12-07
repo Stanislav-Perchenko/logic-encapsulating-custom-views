@@ -14,16 +14,15 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.alperez.samples.collectgoods.GlobalProperties;
+import com.alperez.samples.collectgoods.R;
 import com.alperez.samples.collectgoods.model.LocalCollectedGoodItem;
 import com.alperez.samples.collectgoods.model.PricedGoodEntity;
 import com.alperez.samples.collectgoods.util.LongId;
 import com.alperez.samples.collectgoods.util.PublicUtils;
-import com.alperez.samples.collectgoods.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by stanislav.perchenko on 11/14/2019, 6:38 PM.
